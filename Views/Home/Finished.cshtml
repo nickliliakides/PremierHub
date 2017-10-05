@@ -1,0 +1,58 @@
+﻿@model IEnumerable<PremierHub.Models.Match>
+@{
+    ViewBag.Title = "Finished/Playing Matches";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="text-center title">Premier League 2017/18 Finished and Playing Matches</h2>
+<hr />
+
+<ul class="matchList">
+    @foreach (var m in Model)
+    {
+        <li>
+            <div class="container mainCont">
+                <div class="row">
+                    <div class="col-md-1 text-center">
+                        <div class="date">
+                            <div class="month">
+                                @m.DateTime.ToString("MMM")
+                            </div>
+                            <div class="day">
+                                @m.DateTime.ToString("d ddd")
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2 text-center teamName">
+                        @m.HomeTeam.Name<br /><br />
+
+                    </div>
+                    <div class="col-md-1 text-center">
+                        <img class="teamBadge" src="@Url.Content(m.HomeTeam.TeamBadge)" height="80" />
+                    </div>
+
+                    <div class="col-md-1 text-center vs">
+                        <strong>
+                            Vs
+                        </strong>
+                    </div>
+                    <div class="col-md-2 text-center teamName">
+                        @m.AwayTeam.Name<br /><br />
+
+                    </div>
+                    <div class="col-md-1 text-center">
+                        <img class="opponentTeamBadge" src="@Url.Content(m.AwayTeam.TeamBadge)" height="80" />
+                    </div>
+                    <div class="col-md-2 text-center scoreLbl">
+                        <br /> <label>Final Score:</label><br />
+                        <span class="score"> @m.HomeTeamGoals &nbsp; : &nbsp; @m.AwayTeamGoals</span>
+                    </div>
+                    <div class="col-md-2 text-left detButton">
+                        @Html.ActionLink("Details", "FinishedDetails", new { id = m.Id }, new { @class = "btn btn-info" })
+                        @*<a target='_blank' href="@Url.Content(m.LiveScoreLink)">Match Summary</a>*@
+                    </div>
+                </div>
+            </div>
+        </li>
+    }
+</ul>

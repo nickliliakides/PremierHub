@@ -1,0 +1,71 @@
+﻿@model PremierHub.ViewModels.MatchFormViewModel
+@{
+    ViewBag.Title = Model.Heading;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="text-center title" style="margin-right: 50px;">@Model.Heading</h2>
+<hr />
+<div class="col-md-offset-4">
+
+    <p class="alert alert-info text-center" style="width: 40%;">All fields are <strong>required</strong>.</p>
+</div>
+<div class="row">
+    <div class="col-md-6 col-md-offset-4">
+
+        @using (Html.BeginForm(Model.Action, "Home"))
+        {
+
+            @Html.AntiForgeryToken()
+            @Html.HiddenFor(m => m.Id)
+            <div class="form-group ">
+                <label>Home Team</label>
+                @Html.DropDownListFor(m => m.HomeTeam, new SelectList(Model.HomeTeams, "Id", "Name"), "", new { @class = "form-control", autofocus = "autofocus" })
+                @Html.ValidationMessageFor(m => m.HomeTeam, null, new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                <label>Away Team</label>
+                @Html.DropDownListFor(m => m.AwayTeam, new SelectList(Model.AwayTeams, "Id", "Name"), "", new { @class = "form-control", autofocus = "autofocus" })
+                @Html.ValidationMessageFor(m => m.AwayTeam, null, new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                <label>Stadium</label>
+                @Html.DropDownListFor(m => m.Stadium, new SelectList(Model.Stadiums, "Id", "Name"), "", new { @class = "form-control", autofocus = "autofocus" })
+                @Html.ValidationMessageFor(m => m.Stadium, null, new { @class = "text-danger" })
+            </div>
+            <div class="form-group ">
+                <label>Date</label>
+                @Html.TextBoxFor(m => m.Date, new { @class = "form-control", placeholder = "eg. 2017-Sep-17 Sun" })
+                @Html.ValidationMessageFor(m => m.Date, null, new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                <label>Time</label>
+                @Html.TextBoxFor(m => m.Time, new { @class = "form-control", placeholder = "eg. 20:00" })
+                @Html.ValidationMessageFor(m => m.Time, null, new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                <label>Match Preview/Live score Link</label>
+                @Html.TextBoxFor(m => m.LiveScoreLink, new { @class = "form-control", placeholder = "eg. http://www.flashscore.com/match/pQFvcdch/#match-summary" })
+                @Html.ValidationMessageFor(m => m.LiveScoreLink, null, new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                <label>Home Team Goals Scored</label>
+                @Html.TextBoxFor(m => m.HomeTeamGoals, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.HomeTeamGoals, null, new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                <label>Away Team Goals Scored</label>
+                @Html.TextBoxFor(m => m.AwayTeamGoals, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.AwayTeamGoals, null, new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                <label>Match Highlights Link</label>
+                @Html.TextBoxFor(m => m.Highlights, new { @class = "form-control", placeholder = "eg. https://www.youtube.com/watch?v=3dz1myLoIgE" })
+                @Html.ValidationMessageFor(m => m.Highlights, null, new { @class = "text-danger" })
+            </div>
+            <br />
+            <button type="submit" class="btn btn-primary">Save</button>
+            @Html.ActionLink("Cancel", "Index", null, new { @class = "btn btn-primary cancelButton" })
+        }
+    </div>
+</div>

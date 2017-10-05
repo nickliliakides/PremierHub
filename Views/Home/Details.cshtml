@@ -1,0 +1,74 @@
+﻿@model PremierHub.Models.Match
+
+@{
+    ViewBag.Title = "Match Details";
+}
+
+<h2 class="text-center title">@ViewBag.Title</h2>
+
+
+<div class="container">
+    <hr />
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1 text-center matchDetailsLbl">
+            @{
+                string parameterValue = Model.DateTime.ToString("dddd d MMMM");
+            }
+
+            @Html.DisplayFor(modelItem => parameterValue)
+            &nbsp; &nbsp; at &nbsp; &nbsp;
+            @{
+                string parameterValue1 = Model.DateTime.ToString("t");
+            }
+            @Html.DisplayFor(modelItem => parameterValue1)
+            <br /><br />
+            <label>Stadium:</label>&nbsp;
+            @Html.DisplayFor(model => model.Stadium.Name)
+            <br /><br />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3 text-center matchDetailsLbl">
+            <br />
+            <label>Home Team:</label><br /><br />
+            FC &nbsp; @Html.DisplayFor(model => model.HomeTeam.Name)<br /><br /><br />
+            <img src="@Url.Content(Model.HomeTeam.TeamBadge)" alt="Team Badge" height="120">
+        </div>
+        <div class="col-md-6">
+            <img class="img-thumbnail stadiumImage" src="@Url.Content(Model.Stadium.Picture)" alt="Outter Image" width="600" height="300">
+        </div>
+        <div class="col-md-3 text-center matchDetailsLbl">
+            <br />
+            <label>Away Team:</label><br /><br />
+            FC &nbsp; @Html.DisplayFor(model => model.AwayTeam.Name)<br /><br /><br />
+            <img src="@Url.Content(Model.AwayTeam.TeamBadge)" alt="Team Badge" height="120">
+        </div>
+    </div>
+    <br /><br /><br />
+    <div class="row">
+        <div class="col-md-3 text-center matchDetailsLblLrg">
+            <br /><br /><br />
+            <label>Stadium's Capacity:</label><br /><br />
+            @Html.DisplayFor(model => model.Stadium.Capacity)
+        </div>
+        <div class="col-md-6">
+            <img class="img-thumbnail stadiumImage" src="@Url.Content(Model.Stadium.InnerPicture)" alt="Inner Image" width="600" height="300">
+        </div>
+        <div class="col-md-3 text-center matchDetailsLblLrg">
+            <br /><br /><br />
+            <label>Location:</label><br /><br />
+            @Html.DisplayFor(model => model.Stadium.Address)
+        </div>
+    </div>
+    <div class="row">
+        <br /><br />
+        <div class="col-md-3 col-md-offset-3 text-center actions">
+            @Html.ActionLink("Edit", "Edit", new { id = Model.Id }, new { @class = "btn btn-primary" })
+        </div>
+        <div class="col-md-3 text-center">
+            @Html.ActionLink("Delete", "Delete", new { id = Model.Id }, new { @class = "btn btn-primary" })
+        </div>
+    </div>
+
+
+</div>

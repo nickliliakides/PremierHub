@@ -1,0 +1,81 @@
+﻿@model IEnumerable<PremierHub.Models.Match>
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<h2 class="text-center title">Premier League 2017/18 Upcoming Matches</h2>
+<hr />
+
+@using (Html.BeginForm("Index", "Home"))
+{
+    <div class="container">
+        <div class="row">
+            <p class="mainDesc">Search here for the upcoming matches of your favourite team playing home or away, or search for upcomimg matches at your preferable football stadium.</p>
+            <div class="search">
+                <div class="col-md-3 ddl">
+                    Home Team:<br /> @Html.DropDownList("hometeam", "")&nbsp;&nbsp;
+                </div>
+                <div class="col-md-3 ddl">
+                    Away Team:<br /> @Html.DropDownList("awayteam", "")&nbsp;&nbsp;
+                </div>
+                <div class="col-md-3 ddl">
+                    Stadium:<br /> @Html.DropDownList("stadium", "")&nbsp;&nbsp;
+                </div>
+                <div class="col-md-3">
+                    <br /><input type="submit" class="sbmtBtn" value="Search" />
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+<ul class="matchList">
+    @foreach (var m in Model)
+    {
+        <li>
+            <div class="container mainCont">
+                <div class="row">
+                    <div class="col-md-1 text-center">
+                        <div class="date">
+                            <div class="month">
+                                @m.DateTime.ToString("MMM")
+                            </div>
+                            <div class="day">
+                                @m.DateTime.ToString("d ddd")
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-1 text-center matchTime">
+                        @m.DateTime.ToString("t")
+                    </div>
+                    <div class="col-md-2 text-center teamName">
+                        @Html.DisplayFor(s => m.HomeTeam.Name)
+                    </div>
+                    <div class="col-md-1 text-center">
+                        <img class="teamBadge" src="@Url.Content(m.HomeTeam.TeamBadge)" height="80" />
+                    </div>
+
+                    <div class="col-md-1 text-center vs">
+                        <strong>
+                            @*<a target='_blank' href="@Url.Content(m.LiveScoreLink)">*@
+                                Vs
+                            @*</a>*@
+                        </strong>
+                    </div>
+
+                    <div class="col-md-2 text-center teamName">
+                       @Html.DisplayFor(s => m.AwayTeam.Name)
+                    </div>
+                    <div class="col-md-1 text-center">
+                        <img class="opponentTeamBadge" src="@Url.Content(m.AwayTeam.TeamBadge)" height="80" />
+                    </div>
+                    <div class="col-md-3 text-center">
+                        @Html.ActionLink("Details", "Details", new { id = m.Id }, new { @class = "btn btn-info" })
+
+                    </div>
+
+                </div>
+            </div>
+        </li>
+    }
+</ul>

@@ -1,0 +1,76 @@
+﻿@model PremierHub.Models.Match
+
+@{
+    ViewBag.Title = "Completed Match Details";
+}
+<h2 class="text-center title">@ViewBag.Title</h2>
+<div class="container">
+    <hr />
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1 text-center matchDetailsLbl">
+            Played &nbsp; &nbsp;
+            @{
+                string parameterValue = Model.DateTime.ToString("dddd d MMMM");
+            }
+            @Html.DisplayFor(modelItem => parameterValue)
+            &nbsp; &nbsp; at &nbsp; &nbsp;
+            @{
+                string parameterValue1 = Model.DateTime.ToString("t");
+            }
+            @Html.DisplayFor(modelItem => parameterValue1)
+            <br /><br />
+            <label>Stadium:</label>&nbsp;
+            @Html.DisplayFor(model => model.Stadium.Name)
+            <br /><br />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-5 text-center vs">
+            FC &nbsp; @Html.DisplayFor(model => model.HomeTeam.Name)<br /><br />
+        </div>
+        <div class="col-md-5 col-md-offset-2 text-center vs">
+            FC &nbsp; @Html.DisplayFor(model => model.AwayTeam.Name)<br /><br />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-5 text-center">
+            <img src="@Url.Content(Model.HomeTeam.TeamBadge)" alt="Team Badge" height="140"><br /><br /><br />
+        </div>
+        <div class="col-md-2 text-center vs">
+            <strong> Vs </strong>
+        </div>
+        <div class="col-md-5 text-center">
+            <img src="@Url.Content(Model.AwayTeam.TeamBadge)" alt="Team Badge" height="140"><br /><br /><br />
+        </div>
+    </div>
+    <div class="row" id="fscore">
+        <div class="col-md-5 text-center">
+            @Html.DisplayFor(model => model.HomeTeamGoals)<br />
+        </div>
+        <div class="col-md-2 text-center">
+            <strong> - </strong>
+        </div>
+        <div class="col-md-5 text-center">
+            @Html.DisplayFor(model => model.AwayTeamGoals)<br />
+        </div>
+    </div>
+    <div class="row">
+        <div class="text-center msm">
+            <br /><br /><a target='_blank' href="@Url.Content(Model.LiveScoreLink)">Match Summary/Live Score</a><br /><br /><br />
+        </div>
+        <h3 class="text-center"><strong><u>Match Highlights</u></strong></h3><br />
+        <div class="col-md-6 col-md-offset-2">
+            <div class="vid">
+                <iframe src="@Model.Highlights" width="720" height="460" frameborder="1" allowfullscreen></iframe><br /><br /><br />
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3 col-md-offset-3 text-center actions">
+            @Html.ActionLink("Edit", "Edit2", new { id = Model.Id }, new { @class = "btn btn-primary" })
+        </div>
+        <div class="col-md-3 text-center">
+            @Html.ActionLink("Delete", "Delete", new { id = Model.Id }, new { @class = "btn btn-primary" })
+        </div>
+    </div>
+</div>
