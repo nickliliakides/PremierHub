@@ -1,0 +1,287 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+    font-size: 16px;
+    background-image: url(../Image/BackgroundImg.jpg) !important;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: white;
+}
+
+a {
+    color: #ebebe0;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    margin-top: 25px;
+    padding-left: 15px;
+    padding-right: 15px;
+    background-color: rgba(0, 89, 179, 0.6);
+    border-radius: 30px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+span.field-validation-error {
+    color: red;
+    font-weight: bold;
+}
+
+/*-- Bootsrap Overrides --*/
+.navbar-inverse {
+    background-color: #002b80;
+    border-color: #cdcdb1;
+    height: 40px;
+
+}
+
+.navbar-inverse .navbar-brand {
+    color: #ebebe0;
+    font-weight: 700;
+    font-size: 16px;
+}
+
+.navbar-inverse .navbar-nav > li > a {
+    color: #ebebe0;
+}
+.navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:hover, .navbar-inverse .navbar-nav > .open > a:focus {
+
+    background-color: rgba(5, 22, 56, 0.65);
+}
+
+.navbar-inverse .navbar-nav > .dropdown > a .caret {
+    border-top-color: #ebebe0;
+   
+}
+
+.navbar-header {
+    margin-top: -10px;
+}
+
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+    font-family: Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 500;
+    line-height: 1.1;
+}
+
+label {
+    
+    margin-bottom: 10px;
+   
+}
+
+.form-control {
+    font-size: 16px;
+    border-radius: 8px; 
+}
+
+input.form-control {
+    padding-bottom: 10px;
+}
+
+.btn {
+    font-size: 16px;
+    border-radius: 8px;
+    width: 90px;
+}
+
+.btn-primary {
+
+    background-color: rgba(0, 43, 128,0.8);
+}
+
+.btn-info {
+    background-color: rgba(91, 192, 222, 0.8);
+    margin-top: 24px;
+}
+
+a:visited {
+    color: yellow;
+}
+
+/*-- Index Page Styles --*/
+
+.matchList {
+
+    list-style: none !important;
+}
+
+select#hometeam,select#awayteam,select#stadium {
+    margin-top: 5px;
+    color: #002b80;
+    background-color: rgba(245, 245, 233, 0.7);
+    width: 220px;
+    height: 30px;
+    border-radius: 7px;
+    border-width: 1px;
+
+
+}
+
+.matchList > li {
+
+/*    position: relative;*/
+    margin-bottom: 30px;
+    margin-top: 30px;
+
+
+}
+
+.matchList > li .date {
+    background: rgba(255,0,0,0.8);
+    color: #ebebe0;
+    text-align: center;
+    width: 60px;
+    height: 80px;
+    border-radius: 8px;
+/*    margin-top: 30px;*/
+}
+
+.matchList > li .date .month {
+    padding-top: 2px;
+    padding-bottom: 2px;
+    text-transform: uppercase;
+    font-size: 18px;
+    font-weight: bold;
+    }
+
+    .matchList > li .date .day {
+        background: rgba(235,235,224,0.8);
+        color: #333;
+        font-size: 20px;
+        padding: 2px 10px;
+    }
+
+.vs {
+    font-size: 40px;
+    padding-top: 20px;
+}
+
+.matchTime {
+    padding-top: 27px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.matchDetails {
+    margin-top: 22px;
+}
+
+.teamName {
+    font-size: 18px;
+    padding-top: 27px;
+}
+
+
+
+.search {
+    margin-top: 10px;
+    margin-left: 120px;
+}
+
+.mainDesc {
+    font-size: 18px;
+    text-align: center;
+    padding-left:20px;
+    padding-right:40px;
+
+}
+
+.sbmtBtn {
+    background-color: rgba(245, 245, 233, 0.7);
+    height: 32px;
+    margin-top: 5px;
+    border-radius: 8px;
+    border-width: 1px;
+}
+
+/*-- Create Page Styles --*/
+
+.addHeader {
+    padding-left: 50px;
+}
+
+.cancelButton {
+    margin-left: 98px;
+}
+
+/*-- Details Page Styles --*/
+
+.title {
+    font-family: 'Prociono', serif;
+    font-size: 36px;
+    font-weight: bold;
+    padding-top: 10px;
+}
+
+.matchDetailsLbl {
+    font-size: 24px;
+}
+
+.matchDetailsLblLrg {
+    font-size: 26px;
+}
+
+.liveScore {
+    margin-top: 10px;
+}
+
+/*-- Finished Page Styles --*/
+
+.scoreLbl {
+    margin-top: -6px;
+}
+
+.score {
+    font-weight: bolder;
+    font-size: 28px;
+    margin-top: 8px;
+
+}
+
+.matchSum {
+    margin-top: 16px;
+}
+
+.detButton {
+    
+}
+
+/*-- FinishedDetails Page Styles --*/
+
+#fscore {
+    font-size: 98px;
+    text-shadow: 3px 3px rgba(245, 245, 233, 0.7);
+}
+
+.msm {
+    font-size:24px;
+    font-weight:bold;
+}
